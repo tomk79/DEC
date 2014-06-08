@@ -23,7 +23,8 @@
 			(function(){
 				var b=document.body;
 				elm=document.createElement('script');
-				elm.src='https://raw.githubusercontent.com/tomk79/DEC/master/dec_show.js';
+				elm.type='text/javascript';
+				elm.src='http://tomk79.github.io/DEC/dec_show.js';
 				b.appendChild(elm);
 				b.removeChild(elm);
 				return;
@@ -34,7 +35,8 @@
 			<a href="javascript:(function(){
 var b=document.body;
 elm=document.createElement('script');
-elm.src='https://raw.githubusercontent.com/tomk79/DEC/master/dec_show.js';
+elm.setAttribute('type','text/javascript');
+elm.src='http://tomk79.github.io/DEC/dec_show.js';
 b.appendChild(elm);
 b.removeChild(elm);
 return;
