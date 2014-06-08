@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<title>DEC demo</title>
+	</head>
+	<body>
+		<h1>DEC demo</h1>
+		<p>
+			DEC = DOM embedded comment<br />
+		</p>
+		<div data-dec="test comment.">
+			<p>
+				foo bar.<br />
+			</p>
+			<p>
+				this element has <code>data-dec</code> attribute.<br />
+			</p>
+		</div>
+		<p>
+			execute script below on your JavaScript console to make DEC message visible.<br />
+		</p>
+		<blockquote>
+			(function(){
+				var b=document.body;
+				elm=document.createElement('script');
+				elm.src='https://github.com/tomk79/DEC/blob/master/dec_show.js';
+				b.appendChild(elm);
+				b.removeChild(elm);
+				return;
+			})();
+		</blockquote>
+		<p>
+			or, by bookmarklet.<br />
+			<a href="javascript:(function(){
+var b=document.body;
+elm=document.createElement('script');
+elm.src='https://github.com/tomk79/DEC/blob/master/dec_show.js';
+b.appendChild(elm);
+b.removeChild(elm);
+return;
+})();">show DEC</a>
+		</p>
+		<div data-dec="test comment.
+2 lines.">
+			<p>
+				hoge fuga.<br />
+			</p>
+			<p>
+				this element has <code>data-dec</code> attribute too.<br />
+			</p>
+		</div>
+	</body>
+</html>
