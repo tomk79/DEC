@@ -2,6 +2,7 @@
 	var tmpDECCV=document.querySelectorAll('*[data-dec-comment-viewer]');
 	if(tmpDECCV.length){document.body.removeChild(tmpDECCV[0]);}
 	var decs = document.querySelectorAll('*[data-dec]');
+	var decBlocks = document.querySelectorAll('*[data-dec-block]');
 	if(!decs.length){alert('no data-dec found.');return;}
 	var wrapper = document.createElement('div');
 	wrapper.style.position='absolute';
@@ -41,6 +42,13 @@
 		node.appendChild(frm);
 		node.appendChild(text);
 		wrapper.appendChild(node);
+	}
+	for(var idx=0; decBlocks.length>idx; idx++){
+		decBlocks[idx].style.display = 'block';
+		decBlocks[idx].style.border='5px solid #f00';
+		decBlocks[idx].style.backgroundColor='#fdd';
+		decBlocks[idx].style.padding='2px 10px';
+		decBlocks[idx].style.margin='1em 10px';
 	}
 	document.body.appendChild(wrapper);
 })();
