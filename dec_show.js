@@ -1,5 +1,19 @@
 (function(){
 	var timer = null;
+	function getOffsetTopLeft( elm ) {
+		var top=0, left=0;
+		top+=elm.offsetTop;
+		left+=elm.offsetLeft;
+		if ( elm.offsetParent ) {
+			var tmptop = getOffsetTopLeft( elm.offsetParent );
+			top+=tmptop.top;
+			left+=tmptop.left;
+		}
+		return {
+			"top": top,
+			"left": left
+		};
+	}
 	function showDEC(){
 		if(timer){clearTimeout(timer);}
 		var tmpDECCV=document.querySelectorAll('*[data-dec-comment-viewer]');
@@ -13,10 +27,11 @@
 		wrapper.style.left=0;
 		wrapper.setAttribute('data-dec-comment-viewer', '');
 		for(var idx=0; decs.length>idx; idx++){
+			var decOffset=getOffsetTopLeft(decs[idx]);
 			var node = document.createElement('div');
 			node.style.position='absolute';
-			node.style.top=(decs[idx].offsetTop)+'px';
-			node.style.left=(decs[idx].offsetLeft)+'px';
+			node.style.top=(decOffset.top)+'px';
+			node.style.left=(decOffset.left)+'px';
 			node.style.width=(decs[idx].offsetWidth)+'px';
 			node.style.height='0px';
 			node.style.fontSize='11px';
