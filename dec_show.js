@@ -3,7 +3,7 @@
 	if(tmpDECCV.length){document.body.removeChild(tmpDECCV[0]);}
 	var decs = document.querySelectorAll('*[data-dec]');
 	var decBlocks = document.querySelectorAll('*[data-dec-block]');
-	if(!decs.length){alert('no data-dec found.');return;}
+		if(!decs.length&&!decBlocks.length){alert('no DEC found.');return;}
 	var wrapper = document.createElement('div');
 	wrapper.style.position='absolute';
 	wrapper.style.top=0;
